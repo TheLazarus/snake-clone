@@ -6,7 +6,19 @@ Color darkGreen{43, 51, 24, 255};
 
 int cellSize{30};
 int cellCount{25};
-int main()
+
+class Food
+{
+public:
+    Vector2 position{5, 6};
+
+    void Draw()
+    {
+        DrawRectangle(position.x * cellSize, position.y * cellSize, cellSize, cellSize, darkGreen);
+    }
+};
+
+main()
 
 {
     std::cout << "Now starting ... " << "\n";
@@ -15,12 +27,14 @@ int main()
 
     SetTargetFPS(60);
 
+    Food food;
+
     while (!WindowShouldClose())
     {
 
         BeginDrawing();
         ClearBackground(green);
-
+        food.Draw();
         EndDrawing();
     }
 
